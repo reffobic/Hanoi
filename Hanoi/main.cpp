@@ -17,21 +17,23 @@ void Towers (int N, Stackt& A , Stackt& B , Stackt& C, int & moves, char SourceT
     
     if (N == 1) {
 
-        int disk = A.pop();
-        C.Push(disk);
-        moves++;
+        int disk = A.stackTop();
 
+        C.Push(A.pop());
+        moves++;
         C.display(disk, SourceTag, TargetTag);
+
     }
     else{
 
         Towers(N - 1, A, B, C, moves, SourceTag, AuxTag, TargetTag);
 
-        int disk = A.pop();
-        C.Push(disk);
-        moves++;
+        int disk = A.stackTop();
 
+        C.Push(A.pop());
+        moves++;
         C.display(disk, SourceTag, TargetTag);
+
 
         Towers(N - 1, B, C, A, moves, AuxTag, TargetTag, SourceTag);
     }

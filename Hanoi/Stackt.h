@@ -30,18 +30,25 @@ public:
     
     void Push (int); //pushes a value in the stack
     int pop (); //removes the top value of the stack
+    int stackTop() const;
     void display(int disk, char source, char target); //function to display the steps
 };
 
+int Stackt :: stackTop() const
+{
+    int v;
+    v = theStack[top];
+    return v;
+}
+
 void Stackt :: Push(int num){
-        top ++;
-        theStack [top] = num;
+    theStack [++top] = num;
 }
 
 
 int Stackt :: pop(){
-    int popped = theStack[top];
-    top--;
+    int popped = theStack[top--];
+//    top--;
     return popped;
 }
 
