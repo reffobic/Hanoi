@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		02D2C2A52AAB8539003404AF /* Hanoi */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Hanoi; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D2C2A82AAB8539003404AF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		02D2C2AF2AAB865A003404AF /* Stackt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stackt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				02D2C2A82AAB8539003404AF /* main.cpp */,
+				02D2C2AF2AAB865A003404AF /* Stackt.h */,
 			);
 			path = Hanoi;
 			sourceTree = "<group>";
