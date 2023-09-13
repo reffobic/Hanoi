@@ -17,20 +17,19 @@ void Towers (int N, Stackt& A , Stackt& B , Stackt& C, int & moves, char SourceT
     
     if (N == 1) {
 
-        int disk = A.stackTop();
+        int disk = A.pop();
         C.display(disk, SourceTag, TargetTag);
-        C.Push(A.pop());
+        C.Push(disk);
         moves++;
-
 
     }
     else{
 
         Towers(N - 1, A, B, C, moves, SourceTag, AuxTag, TargetTag);
 
-        int disk = A.stackTop();
+        int disk = A.pop();
         C.display(disk, SourceTag, TargetTag);
-        C.Push(A.pop());
+        C.Push(disk);
         moves++;
 
         Towers(N - 1, B, C, A, moves, AuxTag, TargetTag, SourceTag);
@@ -51,7 +50,7 @@ int main(){
     Stackt Aux(num);
     Stackt Target(num);
     
-    for (int i = 0; i<=num; i++){
+    for (int i = 1; i<=num; i++){
         Source.Push(i);  //to insert the number of disks in the source tower
     }
 

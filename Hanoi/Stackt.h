@@ -42,12 +42,14 @@ int Stackt :: stackTop() const
 }
 
 void Stackt :: Push(int num){
-    theStack [++top] = num;
+    top++;
+    theStack [top] = num;
 }
 
 
 int Stackt :: pop(){
-    int popped = theStack[top--];
+    int popped = theStack[top];
+    top--;
 //    top--;
     return popped;
 }
