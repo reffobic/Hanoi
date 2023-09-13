@@ -30,7 +30,7 @@ public:
     
     void Push (int); //pushes a value in the stack
     int pop (); //removes the top value of the stack
-    void display(string); //function to display the steps
+    void display(int disk, char source, char target); //function to display the steps
 };
 
 void Stackt :: Push(int num){
@@ -38,18 +38,16 @@ void Stackt :: Push(int num){
         theStack [top] = num;
 }
 
+
 int Stackt :: pop(){
     int popped = theStack[top];
     top--;
     return popped;
 }
 
-void Stackt :: display(string name){
-    cout << name << " --> ";
-    for (int i = 0; i<=top; i++){
-        cout << theStack[i] << "  ";
-    }
-    cout << endl;
+
+void Stackt :: display(int disk, char source, char target){
+    cout << "Moved disk " << disk << " from " << source << " to " << target << endl;
 }
 
 #endif /* Stackt_h */
