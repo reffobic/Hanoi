@@ -16,9 +16,8 @@ void Towers (int N, Stackt& A , Stackt& B , Stackt& C, int & moves) {
     
     if (N == 1) {
         
-//        int disk = A.pop();
-//        C.Push(disk);
-        C.Push(A.pop());
+        int disk = A.pop();
+        C.Push(disk);
         moves++;
         
         cout << endl;
@@ -30,9 +29,8 @@ void Towers (int N, Stackt& A , Stackt& B , Stackt& C, int & moves) {
     else{
         Towers(N-1, A, C, B, moves);
         
-//        int disk = A.pop();
-//        C.Push(disk);
-        C.Push(A.pop());
+        int disk = A.pop();
+        C.Push(disk);
         moves++;
         
         cout << endl;
