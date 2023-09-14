@@ -18,9 +18,11 @@ class Stackt
 private:
     int top, MaxSize; // Index to the top of the tower and maximum size of the stack
     int *theStack; // Pointer to the dynamic array representing the stack
-    
+    char stackName;
+
 public:
-    Stackt <int> (int nelements){
+    Stackt <int> (int nelements, char name){
+        stackName = name;
         MaxSize = nelements; // Set the maximum size of the stack
         theStack = new int[MaxSize]; // Dynamically allocate memory for the stack
         top = -1; // Initialize top to -1 (empty stack)
@@ -32,14 +34,18 @@ public:
     
     void Push (int); //pushes a value in the stack
     int pop (); //removes the top value of the stack
-    void displayMove(int disk, char source, char target);
-    void displayStack(char, char, char);
-    //function to display the steps
+    void displayMove(int disk, char source, char target);//function to display the steps
+    void displayStack(char); //funtion to display the contents of the pegs
+    char getName() const;
 };
 
 template<> void Stackt <int> :: Push(int num){
     top++; // Increment top to prepare for the push
     *(theStack+top) = num; // Assign the value to the top of the stack
+}
+
+template<> char Stackt <int> :: getName() const {
+    return stackName;
 }
 
 template<> int Stackt <int> :: pop(){
@@ -52,12 +58,12 @@ template<> void Stackt <int> :: displayMove(int disk, char source, char target){
     cout << "Moved disk " << disk << " from " << source << " to " << target << endl; // Display the movement of a disk from source to target
 }
 
-template<> void Stackt <int> :: displayStack(char N, char source, char target) {
+template<> void Stackt <int> :: displayStack(char N) { //Display the content of the peg using for loop and if empty return "empty"
     cout << "Peg " << N << " ---> ";
     if (top == -1) {
-        cout << "Empty stack" << endl;
+        cout << "Empty" << endl;
     } else {
-        for (int i = top; i >= 0; i--) {
+        for (int i = 0; i <= top; i++) {
             cout << theStack[i] << " ";
         }
         cout << endl;

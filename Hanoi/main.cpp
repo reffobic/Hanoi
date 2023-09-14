@@ -17,14 +17,15 @@ void Towers (int N, Stackt<int> & A , Stackt<int> & B , Stackt<int> & C, int & m
     
     if (N == 1) { // If there's only one disk, move it directly from source to target
 
-        cout << endl << "---------------" << endl;
+        cout << "---------------" << endl;
         int disk = A.pop(); // Pop a disk from the source stack
         C.Push(disk); // Push the disk to the target stack
         C.displayMove(disk, SourceTag, TargetTag); // Display the move
-        A.displayStack('A');
-        B.displayStack('B');
-        C.displayStack('C');
-        cout << "---------------" << endl;
+
+        A.displayStack(A.getName());
+        B.displayStack(B.getName());
+        C.displayStack(C.getName());
+
         moves++; // Increment the move counter
 
     }
@@ -32,14 +33,15 @@ void Towers (int N, Stackt<int> & A , Stackt<int> & B , Stackt<int> & C, int & m
 
         Towers(N-1, A, C, B, moves, SourceTag, AuxTag, TargetTag); // Move N-1 disks from source to auxiliary via target
 
-        cout << endl << "---------------" << endl;
+        cout << "---------------" << endl;
         int disk = A.pop(); // Move the remaining disk from source to target
         C.Push(disk); // Push the disk to the target stack
         C.displayMove(disk, SourceTag, TargetTag); // Display the move
-        A.displayStack('A');
-        B.displayStack('B');
-        C.displayStack('C');
-        cout << "---------------" << endl;
+
+        A.displayStack(A.getName());
+        B.displayStack(B.getName());
+        C.displayStack(C.getName());
+
         moves++; // Increment the move counter
 
         Towers(N-1, B, A, C, moves, AuxTag, TargetTag, SourceTag); // Move N-1 disks from auxiliary to target via source
@@ -56,15 +58,20 @@ int main(){
 
     char sourceTag = 'A', auxiliaryTag = 'B', targetTag = 'C';
     
-    Stackt <int> Source(num); // Create a stack for the source tower
-    Stackt <int> Aux(num); // Create a stack for the auxiliary tower
-    Stackt <int> Target(num); // Create a stack for the target tower
+    Stackt <int> Source(num, 'A'); // Create a stack for the source tower
+    Stackt <int> Aux(num, 'B'); // Create a stack for the auxiliary tower
+    Stackt <int> Target(num, 'C'); // Create a stack for the target tower
     
-    for (int i = 1; i<=num; i++){
+    for (int i = num; i>=1; i--){
         Source.Push(i);  //to insert the number of disks in the source tower
     } // Initialize the source tower with disks numbered from 1 to num
 
-    cout << endl; // Call the Towers function to solve the Tower of Hanoi problem
+    cout << "---------------" << endl;
+    Source.displayStack(sourceTag);
+    Aux.displayStack(auxiliaryTag);
+    Target.displayStack(targetTag);
+
+    // Call the Towers function to solve the Tower of Hanoi problem
     Towers(num, Source, Aux, Target, moves, sourceTag, targetTag, auxiliaryTag);
     cout << endl;
 
