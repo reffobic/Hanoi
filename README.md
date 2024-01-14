@@ -25,6 +25,3 @@ The implementation uses a recursive algorithm to solve the Tower of Hanoi proble
 
 Mohamed El-Refai
 Feel free to explore, modify, and use the code as you see fit!
-
-
-You can customize this template further based on additional information you want to provide, such as how to compile the code, any dependencies, or additional features. Additionally, you can include screenshots or GIFs of the game in action if you'd like.
